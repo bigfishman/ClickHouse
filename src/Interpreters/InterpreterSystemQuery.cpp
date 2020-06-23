@@ -430,7 +430,7 @@ void InterpreterSystemQuery::dropReplica(ASTSystemQuery & query)
     else if (!query.database.empty())
     {
         DatabasePtr database = DatabaseCatalog::instance().tryGetDatabase(query.database);
-        if (database.get() != NULL)
+        if (database)
         {
             for (auto iterator = database->getTablesIterator(context); iterator->isValid(); iterator->next())
             {
